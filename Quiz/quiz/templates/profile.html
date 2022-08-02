@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block head %} <title>Quiz App | Profile Page</title>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd00;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1 style="font-size: 25px;">
+    Welcome {{ username }}!
+</h1><br>
+Yours current total is : {{ total }} <br><br>
+<h2>Yours Score Board</h2><br>
+<div class="score_board">
+    <table>
+        <tr>
+            <th>Quiz Category</th>
+            <th>Quiz Question</th>
+            <th>Difficulty level</th>
+            <th>Score</th>
+        </tr>
+        {% for score in scores %}
+        <tr>
+            <td>{{ score.category }}</td>
+            <td>{{ score.question }}</td>
+            <td>{{ score.level}}</td>
+            <td>{{ score.score}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

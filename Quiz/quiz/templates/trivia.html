@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block head %} <title>Quiz App | Trivia</title> {% endblock %}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class=flashes>
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+{% block content %}
+<h1 style="font-size: 22px;">
+    Welcome to your Trivia Game {{ username }}!
+</h1>
+<div class="q&a">
+    <form action="/trivia/" method="GET">
+        <h11> Question from: </h11>
+        <p name="category" id="category"> {{ question.category }} - category</p>
+        <p name="difficulty" id="difficulty">Difficulty: {{ question.difficulty }}</p>
+        <p>There is yours question</p>
+        <p name="question" id="question">{{ question.question }} </p>
+    </form>
+    <form action="/trivia/check/" method="POST">
+        <button name="my_answer" value="True">True</button>
+        <button name="my_answer" value="False">False</button>
+    </form>
+</div>
+{% endblock %}

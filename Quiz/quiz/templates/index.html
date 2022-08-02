@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block head %}
+<style>
+    .score_board {
+        text-align: -webkit-center;
+        
+    }
+
+    .hero.is-fullheight .hero-body {
+        align-items: baseline;
+        text-align: -webkit-center;
+    }
+    
+    table,
+    td {
+        border: 1px solid #333;
+        text-align:center;
+    }
+
+    thead,
+    tfoot {
+        background-color: #333;
+        color: #fff;
+    }
+
+</style>
+<title>Quiz App | Score Board</title>
+{% endblock %}
+{% block content %}
+<div class="ht"><br>
+    <h1 class="title">
+        Welcome to My Quiz
+    </h1>
+    <h2 class="subtitle"><br>
+        Based on Open Trivia Database
+    </h2>
+</div>
+<br><br>
+
+<div class="score_board">
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2" style="color:#fff; text-align: -webkit-center;">Score Board</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td> Username </td>
+                <td> Total Score </td>
+            </tr>
+            
+            {% for user in users %}
+            <tr>
+                <td style="text-align:center;"> {{ user.username }} </td>
+                <td style="text-align:center;"> {{ user.total }} </td>
+            </tr>
+            {% endfor %}
+            
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
